@@ -79,7 +79,9 @@ function UploadVideoPage(props) {
             .then(response => {
                 if (response.data.success) {
                     alert('video Uploaded Successfully')
-                    props.history.push('/')
+                    setTimeout(() => {
+                        props.history.push('/')
+                    }, 3000);
                 } else {
                     alert('Failed to upload video')
                 }
@@ -148,7 +150,7 @@ function UploadVideoPage(props) {
                             </div>
                         )}
                     </Dropzone>
-
+                    {/* Thumbnail이 있을때만 */}
                     {Thumbnail !== "" &&
                         <div>
                             <img src={`http://localhost:5000/${Thumbnail}`} alt="haha" />
