@@ -20,6 +20,7 @@ function RightMenu(props) {
   };
 
   if (user.userData && !user.userData.isAuth) {
+    // 로그인 안 한 사람
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
@@ -31,6 +32,7 @@ function RightMenu(props) {
       </Menu>
     )
   } else {
+    // 로그인 한 사람
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="logout">
