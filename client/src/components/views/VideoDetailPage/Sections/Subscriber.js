@@ -30,7 +30,6 @@ function Subscriber(props) {
 
         } else {
             // when we are not subscribed yet
-            
             axios.post('/api/subscribe/subscribe', subscribeVariables)
                 .then(response => {
                     if(response.data.success) {

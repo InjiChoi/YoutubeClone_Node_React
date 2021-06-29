@@ -8,7 +8,7 @@ const { auth } = require("../middleware/auth");
 //             Subscribe
 //=================================
 
-
+// 구독수
 router.post("/subscribeNumber", (req, res) => {
 
     Subscriber.find({ "userTo": req.body.userTo })
@@ -19,7 +19,7 @@ router.post("/subscribeNumber", (req, res) => {
 
 });
 
-
+// 구독판별
 router.post("/subscribed", (req, res) => {
 
     Subscriber.find({ "userTo": req.body.userTo , "userFrom": req.body.userFrom })
@@ -37,6 +37,7 @@ router.post("/subscribed", (req, res) => {
 });
 
 
+// 구독하기 
 router.post("/subscribe", (req, res) => {
 
     const subscribe = new Subscriber(req.body);
@@ -47,7 +48,7 @@ router.post("/subscribe", (req, res) => {
     })
 });
 
-
+// 구독취소
 router.post("/unSubscribe", (req, res) => {
 
     console.log(req.body)
