@@ -7,6 +7,7 @@ import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
+import VideoUploadPage from './views/VideoUploadPage/VideoUploadPage';
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -20,7 +21,10 @@ function App() {
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
+          {/* false: login 안 한 사람만 */}
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          {/* true: login 한 사람만 */}
+          <Route exact path="/video/upload" component={Auth(VideoUploadPage, true)} /> 
         </Switch>
       </div>
       <Footer />
