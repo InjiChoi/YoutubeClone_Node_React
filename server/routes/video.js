@@ -70,6 +70,16 @@ router.get('/getVideos', (req, res) => {
 });
 
 
+router.get('getVideoDetail', (req, res) => {
+    Video.findOne({ "_id" : req.body.videoId })
+    .populate('writer')
+    .exec((err, videoDetail) => {
+        if(err) return res.status(400).send(err);
+        res.status(200).json({ success: true, videoDetail })
+    })
+});
+
+
 router.post("/thumbnail", (req, res) => {
 
     // 썸네일 생성하고 비디오 러닝타임도 가져오기
